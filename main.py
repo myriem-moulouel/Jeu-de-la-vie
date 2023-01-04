@@ -86,16 +86,18 @@ def main():
                 if pygame.mouse.get_pressed()[0]:
                     pos = pygame.mouse.get_pos()
                     row, col = pos[1]//new_Game.row, pos[0]//new_Game.col
+                    #print("pressed left ",row, col)
 
-                    if new_Game.grid[row][col] == 0:
-                        new_Game.grid[row][col] = 1
+                    if new_Game.grid_cells[row][col] == 0:
+                        new_Game.grid_cells[row][col] = 1
 
                 if pygame.mouse.get_pressed()[2]:
                     pos = pygame.mouse.get_pos()
                     row, col = pos[1]//new_Game.row, pos[0]//new_Game.col
+                    #print("pressed right ",row, col)
 
-                    if new_Game.grid[row][col] == 1:
-                        new_Game.grid[row][col] = 0
+                    if new_Game.grid_cells[row][col] == 1:
+                        new_Game.grid_cells[row][col] = 0
 
                 if event.type == pygame.KEYDOWN:
                     if event.key in (pygame.K_RETURN, pygame.K_KP_ENTER):
@@ -105,7 +107,7 @@ def main():
             new_Game.draw_grid()
         
         if new_Game and started:
-            new_Game.update_grid()
+            new_Game.update_grid_cells()
         pygame.display.update()
         clock.tick(FPS)
 
