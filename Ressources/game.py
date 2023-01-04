@@ -5,6 +5,8 @@ from .variables import Black, White
 pygame.init()
 
 class Game():
+
+    # Initialisation du jeu
     def __init__(self, n_rows, n_cols):
         self.display_surface = pygame.display.get_surface()
         self.w = self.display_surface.get_width()
@@ -15,8 +17,10 @@ class Game():
         self.row = self.create_cell(1)
         self.col = self.create_cell(0)
 
-        self.grid = self.create_grid()
+        self.grid_cells = self.create_grid()
+        self.grid_neighbors = self.create_grid()
 
+    # Indexation des cellules de la grille
     def create_cell(self, type):
         if type:
             if self.n_rows%self.h != 0:
@@ -30,9 +34,11 @@ class Game():
             else:
                 return (self.w//self.n_rows)
 
+    # Création de la grille (matrice de 0)
     def create_grid(self):
         return [[0 for i in range(self.n_cols)] for j in range(self.n_rows)]
 
+    # Dessiner la grille
     def draw_grid(self):
         self.display_surface.fill(White)
 
@@ -42,45 +48,54 @@ class Game():
         for col in range(self.n_cols):
             pygame.draw.line(self.display_surface, Black, (col*self.col, 0), (col*self.col, self.h))
 
-        for row in range(len(self.grid)):
-            for col in range(len(self.grid[row])):
-                if self.grid[row][col]:
+        for row in range(len(self.grid_cells)):
+            for col in range(len(self.grid_cells[row])):
+                if self.grid_cells[row][col]:
                     Rect = pygame.Rect(col*self.col, row*self.row, self.row, self.col)
                     pygame.draw.rect(self.display_surface, Black, Rect)
 
+    # Mettre une cellule vivante dans la case (i, j)
     def draw_pattern(self, i, j):
-        self.grid[i][j] = 1
+        self.grid_cells[i][j] = 1
 
-    def update_grid(self):
 
+    # mettre à jour la grille du nombre de voisins
+    def update_grid_neighbors(self):
         def countNeighbors(r,c):
             nei = 0
 
             for i in range(r-1, r+2):
                 for j in range(c-1, c+2):
                     if ((i == r and j == c) or i < 0 or j < 0 or
-                        i == len(self.grid) or j == len(self.grid[0])):
+                        i == len(self.grid_cells) or j == len(self.grid_cells[0])):
                         continue
 
-                    if self.grid[i][j] in [1,2]:
+                    if self.grid_cells[i][j]:
                         nei += 1
             return nei
-                    
+
         for r in range(self.n_rows):
             for c in range(self.n_cols):
                 nei = countNeighbors(r,c)
-                if self.grid[r][c]:
-                    if nei in [2,3]:
-                        self.grid[r][c]
+                self.grid_neighbors[r][c] = nei
 
-                elif nei == 3:
-                    self.grid[r][c] = 2
+
+        
+
+    # Mise-à-jour de la grille de cellules
+    def update_grid_cells(self):
+        self.update_grid_neighbors()
+        
         for r in range(self.n_rows):
             for c in range(self.n_cols):
-                if self.grid[r][c] == 1:
-                    self.grid[r][c] = 0
-
-                elif self.grid[r][c] in [2,3]:
-                    self.grid[r][c] = 1
-        
+                if self.grid_cells[r][c]:
+                    if self.grid_neighbors[r][c] in [2,3]:
+                        self.grid_cells[r][c] = 1
+                    else:
+                        self.grid_cells[r][c] = 0
+                else:
+                    if self.grid_neighbors[r][c] == 3:
+                        self.grid_cells[r][c] = 1
+                    else:
+                        self.grid_cells[r][c] = 0
         time.sleep(0.4)
