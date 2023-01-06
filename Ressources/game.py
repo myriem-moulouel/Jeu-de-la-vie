@@ -30,9 +30,9 @@ class Game():
 
         else:
             if self.n_cols%self.w != 0:
-                return (self.w//self.n_rows)+1
+                return (self.w//self.n_cols)+1
             else:
-                return (self.w//self.n_rows)
+                return (self.w//self.n_cols)
 
     # Création de la grille (matrice de 0)
     def create_grid(self):
@@ -51,7 +51,7 @@ class Game():
         for row in range(len(self.grid_cells)):
             for col in range(len(self.grid_cells[row])):
                 if self.grid_cells[row][col]:
-                    Rect = pygame.Rect(col*self.col, row*self.row, self.row, self.col)
+                    Rect = pygame.Rect( col*self.col, row*self.row, self.col, self.row)
                     pygame.draw.rect(self.display_surface, Black, Rect)
 
     # Mettre une cellule vivante dans la case (i, j)
