@@ -1,6 +1,7 @@
 import pygame
 from Ressources.variables import *
 from Ressources.game import Game
+
 pygame.init()
 
 pygame.display.set_caption("Jeu De La Vie")
@@ -21,6 +22,7 @@ def main():
     new_Game = None
     n_rows = ''
     n_cols = ''
+    
 
     while run:
         Win.fill(White)
@@ -86,7 +88,6 @@ def main():
                 if pygame.mouse.get_pressed()[0]:
                     pos = pygame.mouse.get_pos()
                     row, col = pos[1]//new_Game.row, pos[0]//new_Game.col
-                    #print("pressed left ",row, col)
 
                     if new_Game.grid_cells[row][col] == 0:
                         new_Game.grid_cells[row][col] = 1
@@ -94,7 +95,6 @@ def main():
                 if pygame.mouse.get_pressed()[2]:
                     pos = pygame.mouse.get_pos()
                     row, col = pos[1]//new_Game.row, pos[0]//new_Game.col
-                    #print("pressed right ",row, col)
 
                     if new_Game.grid_cells[row][col] == 1:
                         new_Game.grid_cells[row][col] = 0
