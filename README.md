@@ -5,8 +5,9 @@ Il s'agit de programmer un Jeu De La Vie en python, en utilisant la synchronisat
  
 ## Lancement du programme
 * Télécharger le projet, lancer le fichier main.py avec une commande python du stype : python main.py
-* S'assurer d'avoir les bibliothèques python requises comme pygame, threading, time
-Si elles sont pas déjà installées https://www.pygame.org/wiki/GettingStarted 
+* S'assurer d'avoir les bibliothèques python requises comme pygame, threading, time.
+
+Si elles sont pas déjà installées pygame : https://www.pygame.org/wiki/GettingStarted 
 * Rentrer le nombre de lignes et de colonnes que vous désirez
 
 <div id="image-table">
