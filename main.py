@@ -19,6 +19,7 @@ def main():
     n_cols_entered = False
     created = False
     started = False
+    started_thread = False
     new_Game = None
     n_rows = ''
     n_cols = ''
@@ -106,8 +107,11 @@ def main():
             
             new_Game.draw_grid()
         
-        if new_Game and started:
-            new_Game.update_grid_cells()
+        if new_Game and started and not(started_thread):
+            print("la longueur de la list thread : ",len(new_Game.list_thread),len(new_Game.list_thread[0]))
+            new_Game.update_grid_neighbors()
+            started_thread = True
+
         pygame.display.update()
         clock.tick(FPS)
 
