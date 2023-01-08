@@ -109,7 +109,7 @@ def main():
         
         if new_Game and started and not(started_thread):
             print("la longueur de la list thread : ",len(new_Game.list_thread),len(new_Game.list_thread[0]))
-            new_Game.update_grid_neighbors()
+            new_Game.update_grid()
             started_thread = True
 
         pygame.display.update()
