@@ -8,8 +8,14 @@ Il s'agit de programmer un Jeu De La Vie en python, en utilisant la synchronisat
 * S'assurer d'avoir les bibliothèques python requises comme pygame, threading, time
 * Rentrer le nombre de lignes et de colonnes que vous désirez
 
-Solarized dark             |  Solarized Ocean
-:-------------------------:|:-------------------------:
+<div style="display:flex">
+     <div style="flex:1;padding-right:10px;">
+          <img src="[img/image1.png](https://user-images.githubusercontent.com/60098131/211201593-3aafc3a9-5808-4015-9401-0f3dca57f237.png)" width="300"/>
+     </div>
+     <div style="flex:1;padding-left:10px;">
+          <img src="[img/image2.png](https://user-images.githubusercontent.com/60098131/211201614-3a849ac4-9818-4b80-888f-9e71a25a5d13.png)" width="300"/>
+     </div>
+</div>
 
 ![image](https://user-images.githubusercontent.com/60098131/211201593-3aafc3a9-5808-4015-9401-0f3dca57f237.png)  |  ![image](https://user-images.githubusercontent.com/60098131/211201614-3a849ac4-9818-4b80-888f-9e71a25a5d13.png)
 
