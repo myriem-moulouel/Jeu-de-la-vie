@@ -21,9 +21,10 @@ class Game():
         self.grid_cells = self.create_grid()
         self.grid_neighbors = self.create_grid()
 
-        self.list_thread = [[threading.Thread(target=self.countNeighbors,args=(i,j)) for j in range(self.n_cols)] for i in range(self.n_rows)]
-        self.thread_cell = threading.Thread(target=self.update_grid_cells)
-        self.barrier = threading.Barrier(n_rows*n_cols+1)
+        self.list_thread = [[threading.Thread(target=self.countCells,args=(i,j)) for j in range(self.n_cols)] for i in range(self.n_rows)]
+
+        self.barrier_nei = threading.Barrier(n_rows*n_cols)
+        self.barrier_cell = threading.Barrier(n_rows*n_cols)
 
     # Indexation des cellules de la grille
     def create_cell(self, type):
@@ -65,46 +66,42 @@ class Game():
 
 
     # mettre à jour la grille du nombre de voisins
-    def update_grid_neighbors(self):
+    def update_grid(self):
         for r in range(self.n_rows):
             for c in range(self.n_cols):
                 self.list_thread[r][c].start()
-        self.thread_cell.start()
 
-    def countNeighbors(self,r,c):
+    def countCells(self,r,c):
         while True:
-            nei = 0
 
+
+            nei = 0
             for i in range(r-1, r+2):
                 for j in range(c-1, c+2):
                     if ((i == r and j == c) or i < 0 or j < 0 or
                         i == len(self.grid_cells) or j == len(self.grid_cells[0])):
                         continue
-
                     if self.grid_cells[i][j]:
                         nei += 1
             self.grid_neighbors[r][c] = nei
-            print("waiting ", r, c)
-            self.barrier.wait()
+            self.barrier_nei.wait()
 
-    # Mise-à-jour de la grille de cellules
-    def update_grid_cells(self):
-        while True:
-            #print("barrier n_waiting", self.barrier.n_waiting)
-            if self.barrier.n_waiting == self.n_rows*self.n_cols:
-                for r in range(self.n_rows):
-                    for c in range(self.n_cols):
-                        if self.grid_cells[r][c]:
-                            if self.grid_neighbors[r][c] in [2,3]:
-                                self.grid_cells[r][c] = 1
-                            else:
-                                self.grid_cells[r][c] = 0
-                        else:
-                            if self.grid_neighbors[r][c] == 3:
-                                self.grid_cells[r][c] = 1
-                            else:
-                                self.grid_cells[r][c] = 0
+
+
+            if self.grid_cells[r][c]:
+                if self.grid_neighbors[r][c] in [2,3]:
+                    self.grid_cells[r][c] = 1
+                else:
+                    self.grid_cells[r][c] = 0
+            else:
+                if self.grid_neighbors[r][c] == 3:
+                    self.grid_cells[r][c] = 1
+                else:
+                    self.grid_cells[r][c] = 0
+            if self.barrier_cell.n_waiting == self.n_rows*self.n_cols-1:
                 self.draw_grid()
-                self.barrier.wait()
+                #time.sleep(0.1)
 
-            time.sleep(0.4)
+            
+            self.barrier_cell.wait()
+
