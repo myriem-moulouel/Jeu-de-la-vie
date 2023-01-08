@@ -31,7 +31,8 @@ def main():
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     run = False
-                    quit()
+                    if new_Game is not None:
+                        new_Game.quit()
 
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_BACKSPACE:
@@ -55,7 +56,8 @@ def main():
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     run = False
-                    quit()
+                    if new_Game is not None:
+                        new_Game.quit()
 
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_BACKSPACE:
@@ -75,14 +77,15 @@ def main():
             Win.blit(text, (input_rect.x + 5, input_rect.y + 5))
         else:
             if not created:
-                new_Game = Game(int(n_rows), int(n_cols))
+                new_Game = Game(int(n_rows), int(n_cols), 0.25)
 
                 created = True
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     run = False
-                    quit()
+                    if new_Game is not None:
+                        new_Game.quit()
 
                 if started:
                     continue
