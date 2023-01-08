@@ -44,3 +44,5 @@ Si elles sont pas déjà installées pygame : https://www.pygame.org/wiki/Gettin
 On a crée (nb lignes * nb colonnes) de threads qui s'executent à l'infini en calculant dans un premier temps le nombre de voisins de chaque cellule, puis dans un deuxième temps la valeur de la cellule à l'étape suivante. 
 
 Pour s'assurer que le calcul du nombre de tous les voisins soit effectué avant d'entamer le changement de valeur aux cellules de la grille, on utilise deux barrières de synchronisation, l'une va s'assurer que le calcul du nombre de voisin est terminé et l'autre que le changement de cellule est terminé.
+
+## Variables globales:
