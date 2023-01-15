@@ -77,7 +77,7 @@ def main():
             Win.blit(text, (input_rect.x + 5, input_rect.y + 5))
         else:
             if not created:
-                new_Game = Game(int(n_rows), int(n_cols), 0.25)
+                new_Game = Game(int(n_rows), int(n_cols), REFRESH_RATE)
 
                 created = True
 
