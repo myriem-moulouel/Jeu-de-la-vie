@@ -35,7 +35,7 @@ Si elle n'est pas déjà installée pygame : https://www.pygame.org/wiki/Getting
     </table>
 </div>
 
-* Séléctionnez les cellules vivantes initiales de votre choix pour commencer le jeu avec le clique gauche de la souris, déséléctionnez avec le clique droit puis Entrer
+* Séléctionnez les cellules vivantes initiales de votre choix pour commencer le jeu avec le clique gauche de la souris, déséléctionnez avec le clique droit puis `Entrer`
 
 * Observez le jeu !
 
@@ -51,6 +51,8 @@ Si elle n'est pas déjà installée pygame : https://www.pygame.org/wiki/Getting
         </tr>
     </table>
 </div>
+
+* Pour arrêter le jeu, fermez a fenêtre active.
 
 ## La partie synchronisée:
 On a crée (nb lignes * nb colonnes) de threads qui s'executent à l'infini en calculant le nombre de voisins de chaque cellule, puis la valeur de la cellule à l'étape suivante. 
