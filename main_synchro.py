@@ -2,7 +2,7 @@ import pygame
 import time
 import threading
 from Ressources.variables import *
-from Ressources.game import Game
+from Ressources.game_synchro import Game
 
 
 pygame.init()
