@@ -7,6 +7,10 @@ temps en une suite d’instants et en calculant (suivant des règles décrites p
 
 ## Régles d'évolution :
 Pour savoir l'état d’une case à l'étape n + 1, on regarde son état et celui de ses 8 voisines à l'instant n.
+— Si elle est vide et qu’elle a exactement 3 cases voisines occup ́ees, elle devient occup ́ee par une nouvelle
+cellule. Sinon elle reste vide.
+— Si elle est occup ́ee et qu’elle a exactement 2 ou 3 cases voisines  ́egalement occup ́ees, la cellule qui occupe
+la case survit. Sinon le cellule disparaˆıt.
 
 ## Présentation du projet
 Il s'agit de programmer un Jeu De La Vie en python, en utilisant la synchronisation avec des threads.
@@ -17,7 +21,7 @@ Il s'agit de programmer un Jeu De La Vie en python, en utilisant la synchronisat
 * Télécharger le projet, lancer le fichier main.py avec une commande python du stype : `python main_synchro.py` pour lancer la version synchronisée et `python main_sequencial.py` pour lancer la version séquencielle.
 * S'assurer d'avoir les bibliothèques python requises comme pygame, threading, time.
 
-Si elles sont pas déjà installées pygame : https://www.pygame.org/wiki/GettingStarted 
+Si elle n'est pas déjà installée pygame : https://www.pygame.org/wiki/GettingStarted 
 * Rentrer le nombre de lignes et de colonnes que vous désirez
 
 <div id="image-table">
