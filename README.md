@@ -16,7 +16,7 @@ Il s'agit de programmer un Jeu De La Vie en python, en utilisant la synchronisat
 * Deuxième approche : n_row * n_col threads qui calculent les (n_row * n_col) cases de la grille, dans le fichier `V2_main_synchro.py`.
  
 ## Lancement du programme
-* Télécharger le projet, lancer le fichier V2_main_synchro.py avec une commande python du stype : `python v2_main_synchro.py` pour lancer la version synchronisée et `python V1_main_sequencial.py` pour lancer la version séquencielle.
+* Télécharger le projet, lancer le fichier V2_main_synchro.py avec une commande python du stype : `python V2_main_synchro.py` pour lancer la version synchronisée et `python V1_main_sequencial.py` pour lancer la version séquencielle.
 * S'assurer d'avoir les bibliothèques python requises comme pygame, threading, time.
 
 Si elle n'est pas déjà installée pygame : https://www.pygame.org/wiki/GettingStarted 
