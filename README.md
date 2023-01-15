@@ -7,8 +7,8 @@ temps en une suite d’instants et en calculant (suivant des règles décrites p
 
 ## Régles d'évolution :
 Pour savoir l'état d’une case à l'étape n + 1, on regarde son état et celui de ses 8 voisines à l'instant n.
-** — Si elle est vide et qu'elle a exactement 3 cases voisines occupées, elle devient occupée par une nouvelle cellule. Sinon elle reste vide.
-** — Si elle est occupée et qu'elle a exactement 2 ou 3 cases voisines également occupées, la cellule qui occupe la case survit. Sinon le cellule disparaît.
+* Si elle est vide et qu'elle a exactement 3 cases voisines occupées, elle devient occupée par une nouvelle cellule. Sinon elle reste vide.
+* Si elle est occupée et qu'elle a exactement 2 ou 3 cases voisines également occupées, la cellule qui occupe la case survit. Sinon le cellule disparaît.
 
 ## Présentation du projet
 Il s'agit de programmer un Jeu De La Vie en python, en utilisant la synchronisation avec des threads.
