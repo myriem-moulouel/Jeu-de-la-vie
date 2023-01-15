@@ -1,9 +1,9 @@
 # Jeu-de-la-vie
 
 ## Mini-projet : Le Jeu de la Vie
-Le jeu de la vie de Conway repr ́esente l’ ́evolution d’une population de cellules contenue dans un tableau bidi-
+Le jeu de la vie de Conway représente l'évolution d'une population de cellules contenue dans un tableau bidi-
 mensionnel. Chaque case du tableau contient 0 ou 1 cellule et on simule l’ ́evolution de la population en divisant le
-temps en une suite d’instants et en calculant (suivant des r`egles d ́ecrites plus loin) la population `a chaque instant.
+temps en une suite d’instants et en calculant (suivant des règles décrites plus loin) la population à chaque instant.
 
 ## Régles d'évolution :
 Pour savoir l'état d’une case à l'étape n + 1, on regarde son état et celui de ses 8 voisines à l'instant n.
