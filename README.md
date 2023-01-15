@@ -9,10 +9,12 @@ temps en une suite d’instants et en calculant (suivant des règles décrites p
 Pour savoir l'état d’une case à l'étape n + 1, on regarde son état et celui de ses 8 voisines à l'instant n.
 
 ## Présentation du projet
-Il s'agit de programmer un Jeu De La Vie en python, en utilisant la synchronisation avec des threads
+Il s'agit de programmer un Jeu De La Vie en python, en utilisant la synchronisation avec des threads.
+* Première approche : séquencielle, sans synchronisation, dans le fichier `sequencial.py`.
+* Deuxième approche : n_row * n_col threads qui calculent les (n_row * n_col) cases de la grille.
  
 ## Lancement du programme
-* Télécharger le projet, lancer le fichier main.py avec une commande python du stype : python main.py
+* Télécharger le projet, lancer le fichier main.py avec une commande python du stype : `python main.py` pour lancer la version synchronisée et `python sequencial.py` pour lancer la version séquencielle.
 * S'assurer d'avoir les bibliothèques python requises comme pygame, threading, time.
 
 Si elles sont pas déjà installées pygame : https://www.pygame.org/wiki/GettingStarted 
