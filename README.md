@@ -56,3 +56,14 @@ On a crée (nb lignes * nb colonnes) de threads qui s'executent à l'infini en c
 Pour s'assurer que le calcul du nombre de tous les voisins soit effectué avant d'entamer le changement de valeur aux cellules de la grille, on utilise deux barrières de synchronisation, l'une va s'assurer que le calcul du nombre de voisin est terminé et l'autre que le changement de cellule est terminé.
 
 ## Variables globales:
+Écrites dans le fichier `Ressources/variables.py`
+
+* La largeur et la hauteur de la grille :
+Width, Height = 700, 700
+
+* Les couleurs utilisées pour l'affichage des cases de la grille :
+White = (255, 255, 255)
+Black = (0, 0, 0)
+
+* Variable utilisée dans la version synchronisée pour ralentir l'affichage via la thread `self.time_barrier` :
+REFRESH_RATE = 0.25
