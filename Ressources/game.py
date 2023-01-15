@@ -48,7 +48,7 @@ class Game:
     # pour que les frames ne s'enchainent pas trop vite
     def refresh_barrier(self):
         while not self.stop_event.is_set():
-            time.sleep(0.25)
+            time.sleep(self.refresh_rate)
             try:
                 self.barrier_cell.wait()
             except threading.BrokenBarrierError:
