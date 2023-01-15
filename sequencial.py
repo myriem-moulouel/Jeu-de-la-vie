@@ -1,10 +1,6 @@
 import pygame
 import time
-
-Width, Height = 700, 700
-
-White = (255,255,255)
-Black = (0,0,0)
+from Ressources.variables import *
 
 
 pygame.init()
