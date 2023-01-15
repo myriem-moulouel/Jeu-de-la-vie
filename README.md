@@ -5,8 +5,8 @@ Le jeu de la vie de Conway repr ́esente l’ ́evolution d’une population de 
 mensionnel. Chaque case du tableau contient 0 ou 1 cellule et on simule l’ ́evolution de la population en divisant le
 temps en une suite d’instants et en calculant (suivant des r`egles d ́ecrites plus loin) la population `a chaque instant.
 
-## R`egles d’ ́evolution : Pour savoir l’ ́etat d’une case `a l’ ́etape n + 1, on regarde son  ́etat et celui de ses 8 voisines
-`a l’instant n.
+## Régles d'évolution :
+Pour savoir l'état d’une case à l'étape n + 1, on regarde son état et celui de ses 8 voisines à l'instant n.
 
 ## Présentation du projet
 Il s'agit de programmer un Jeu De La Vie en python, en utilisant la synchronisation avec des threads
